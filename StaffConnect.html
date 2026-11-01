@@ -51,7 +51,7 @@ h1{font-size:25px;letter-spacing:-.045em;margin:2px 0;line-height:1.15}.kicker{f
       <div class="call-intro"><div class="call-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="15" rx="5"/><path d="M4 11a8 8 0 0 0 16 0M12 19v3m-4 0h8"/></svg></div><div><div id="callTitle" class="call-title">Ready to connect</div><div id="callState" class="status">Select an available colleague to begin.</div></div></div>
       <div class="scope"><span class="scope-label">MICROPHONE · LIVE SIGNAL</span><canvas id="waveform" aria-label="Live microphone signal visualisation"></canvas></div>
       <div class="call-controls"><button id="modeBtn" disabled>Mode: Open microphone</button><button id="muteBtn" disabled>Mute</button><button id="pttBtn" disabled hidden>Hold to talk</button><button id="speakerBtn" disabled>Enable speaker</button><button id="hangupBtn" class="danger" disabled>End conversation</button></div>
-      <div class="privacy"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Encrypted live audio. No recording, transcription or audio uploads. Keep this window open to receive requests.</span></div>
+      <div class="privacy"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Encrypted live audio. No recording, transcription or audio uploads. Incoming requests also appear automatically in the timetable while it remains open.</span></div>
     </section>
   </div>
   <div id="message" class="banner" role="status">Staff Connect uses your existing GitHub Pages and Google Apps Script connection.</div>
@@ -68,6 +68,7 @@ const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.hash.slice(1));
 const session=params.get('sc')||'';
 const hostOrigin=params.get('origin')||'';
+const incomingIntent=/^[a-f0-9]{32}$/.test(params.get('incoming')||'') ? params.get('incoming') : '';
 const CHANNEL='DT_STAFF_CONNECT_APPS_SCRIPT_V1';
 const ICE_SERVERS=[{urls:'stun:stun.l.google.com:19302'}];
 const state={me:null,members:[],presence:{},since:0,call:null,incoming:null,dnd:false,
@@ -179,7 +180,16 @@ async function start(){try{
   $('accountName').textContent=d.me.name;$('accountEmail').textContent=d.me.email;
   $('signin').hidden=true;$('chime').hidden=false;$('dnd').hidden=false;$('workspace').hidden=false;$('setupNotice').hidden=true;
   status('Online');renderDirectory();await heartbeat();
-  msg('Intercom ready. Leave this and your timetable window open. Choose Enable ringtone once so the browser can play incoming chimes.');
+  msg('Intercom ready. The timetable can receive requests even when this window is closed.');
+  // A timetable user clicked Accept. Verify this exact outstanding invitation on the server,
+  // then accept it here once (after requesting the microphone). No second click needed.
+  if(incomingIntent){
+    try{
+      const invitation=await sendBridge('pending',{id:incomingIntent});
+      state.incoming={id:invitation.id,from:invitation.from};
+      await accept();
+    }catch(e){report(e);msg('Unable to join the incoming request: '+(e?.message||String(e)));}
+  }
   state.heartbeatTimer=setInterval(()=>heartbeat().catch(report),18000);poll().catch(report);
  }catch(e){status('Unable to join');report(e)}
 }
@@ -196,6 +206,7 @@ async function invite(email){if(state.call||state.incoming)return;const id=newid
 }
 async function onSignal(s){const c=state.call;
  if(s.type==='invite'){
+   if(state.call?.id===s.id || state.incoming?.id===s.id)return; // Already handed over from timetable.
    if(state.dnd||state.incoming||state.call){await sendBridge('decline',{id:s.id}).catch(()=>{});return}
    state.incoming={id:s.id,from:s.from};pendingUI();heartbeat().catch(report);return;
  }
