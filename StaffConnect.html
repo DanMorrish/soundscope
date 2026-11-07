@@ -76,6 +76,64 @@ body.live-session .footer{padding:10px 22px}
 .live-note{font-size:10px;color:#91adbf;text-align:center;line-height:1.4}
 @media(max-width:640px){.live-card{padding:13px;gap:10px;min-height:0}.live-visual{grid-template-columns:1fr 1.15fr 1fr;gap:5px}.live-person .live-avatar{width:52px;height:52px;border-radius:15px;font-size:14px}.live-person strong{font-size:11px}.live-link .scope{height:75px}.live-controls{grid-template-columns:1fr}.ptt-switch{height:82px;min-height:82px;grid-template-columns:auto 1fr;gap:8px;padding:9px 13px}.ptt-switch .switch-knob{grid-row:span 2}.live-connection{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.ptt-switch,.ptt-switch .switch-knob,.live-person .live-avatar,.live-connection::before{animation:none!important;transition:none!important}}
+
+/* Staff Connect 3: compact, single-purpose directory. The live PTT screen is unchanged. */
+body:not(.live-session){display:block;padding:0;min-height:100dvh;background:#0d2134}
+body:not(.live-session) .shell{width:100%;max-width:none;min-height:100dvh;margin:0;border:0;border-radius:0;box-shadow:none}
+body:not(.live-session) .head{padding:11px 17px}
+body:not(.live-session) .brand-mark{width:39px;height:39px;border-radius:11px}
+body:not(.live-session) .brand-mark svg{width:23px;height:23px}
+body:not(.live-session) h1{font-size:21px}
+body:not(.live-session) .kicker{font-size:9px;letter-spacing:.09em}
+body:not(.live-session) .heading-sub{font-size:10px;margin-top:2px}
+body:not(.live-session) #connection{font-size:10px;padding:7px 10px}
+body:not(.live-session) .content{padding:10px 14px 9px;gap:9px}
+body:not(.live-session) .bar{gap:7px}
+body:not(.live-session) .account{gap:8px}
+body:not(.live-session) .account-avatar{width:29px;height:29px;border-radius:9px;font-size:13px}
+body:not(.live-session) .account strong{font-size:11px}
+body:not(.live-session) #accountEmail{display:none}
+body:not(.live-session) .account-tools{gap:5px}
+body:not(.live-session) .account-tools button{font-size:10px;min-height:30px;padding:5px 9px;border-radius:8px}
+body:not(.live-session) .grid{display:block}
+body:not(.live-session) .directory-panel{padding:11px 12px 12px;border-radius:12px}
+body:not(.live-session) .intercom-panel{display:none!important}
+body:not(.live-session) .panel-heading{align-items:center;margin-bottom:8px}
+body:not(.live-session) .panel-heading h2{font-size:14px}
+body:not(.live-session) .section-sub{font-size:10px}
+body:not(.live-session) .total-chip{font-size:10px;padding:5px 8px}
+body:not(.live-session) .search-wrap{margin-bottom:8px;border-radius:8px}
+body:not(.live-session) .search-wrap input{height:33px;font-size:11px}
+body:not(.live-session) #directory{max-height:min(370px,calc(100dvh - 226px));min-height:0;padding-right:3px}
+body:not(.live-session) .team-section+.team-section{margin-top:7px}
+body:not(.live-session) .team-toggle{display:flex;align-items:center;gap:8px;width:100%;padding:6px 8px;min-height:38px;border:1px solid #355a75;border-radius:9px;background:#183850;color:#eff8ff;text-align:left;transform:none;box-shadow:none;cursor:pointer}
+body:not(.live-session) .team-toggle:hover,body:not(.live-session) .team-toggle:focus-visible{background:#214762;border-color:#6aa2c3;transform:none}
+body:not(.live-session) .team-heading{display:grid;gap:1px}
+body:not(.live-session) .team-toggle .team-symbol{flex:0 0 26px;width:26px;height:26px;border-radius:7px}
+body:not(.live-session) .team-toggle .team-symbol svg{width:15px;height:15px}
+body:not(.live-session) .team-toggle .team-heading{flex:1;min-width:0}
+body:not(.live-session) .team-toggle .team-name{font-size:11px}
+body:not(.live-session) .team-toggle .team-hint{font-size:9px}
+body:not(.live-session) .team-toggle .team-count{margin-left:auto;font-size:9px;padding:3px 6px}
+body:not(.live-session) .team-chevron{flex:none;font-size:16px;font-weight:800;color:#acd9eb;transition:transform .2s}
+body:not(.live-session) .team-toggle[aria-expanded=true] .team-chevron{transform:rotate(180deg)}
+body:not(.live-session) .team-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:7px}
+body:not(.live-session) .person{padding:8px 9px;gap:7px;min-height:74px;border-radius:9px;grid-template-rows:auto auto}
+body:not(.live-session) .person-head{gap:7px;align-items:center}
+body:not(.live-session) .person-avatar{width:29px;height:29px;border-radius:8px;font-size:10px}
+body:not(.live-session) .person-name{font-size:11px;line-height:1.25}
+body:not(.live-session) .person-email{display:none}
+body:not(.live-session) .person-footer{gap:6px}
+body:not(.live-session) .person-footer .state{font-size:9px;white-space:nowrap}
+body:not(.live-session) .person-footer .dot{width:7px;height:7px}
+body:not(.live-session) .person-footer button{min-width:58px;min-height:27px;padding:4px 9px;font-size:10px;border-radius:7px}
+body:not(.live-session) .person-footer button:disabled{display:none}
+body:not(.live-session) .empty-team{font-size:10px;padding:9px;margin-top:6px}
+body:not(.live-session) #message{padding:7px 10px;font-size:10px;line-height:1.3}
+body:not(.live-session) .footer{padding:7px 15px;font-size:9px;gap:6px}
+@media(max-width:720px){body:not(.live-session) .team-cards{grid-template-columns:repeat(2,minmax(0,1fr))}body:not(.live-session) #directory{max-height:calc(100dvh - 228px)}}
+@media(max-width:440px){body:not(.live-session) .team-cards{grid-template-columns:1fr}body:not(.live-session) .heading-sub{display:none}body:not(.live-session) .head{padding:9px 11px}body:not(.live-session) .content{padding:8px}body:not(.live-session) .account-tools button{padding:5px}body:not(.live-session) #directory{max-height:calc(100dvh - 220px)}}
+@media(prefers-reduced-motion:reduce){body:not(.live-session) .team-chevron{transition:none}}
 </style>
 </head>
 <body>
@@ -92,8 +150,8 @@ body.live-session .footer{padding:10px 22px}
   <div id="adminNotice" class="banner" hidden>Access is restricted to authorised staff in the StaffConnectMembers sheet. <span id="uid"></span></div>
   <div class="grid" id="workspace" hidden>
     <section class="panel directory-panel" aria-labelledby="staffHeading">
-      <div class="panel-heading"><div><h2 id="staffHeading">Your colleagues</h2><div class="section-sub">Choose an available colleague to start a conversation</div></div><span class="total-chip" id="peopleCount">0 colleagues</span></div>
-      <label class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="searchStaff" type="search" placeholder="Find a colleague…" aria-label="Find a colleague" autocomplete="off" /></label>
+      <div class="panel-heading"><div><h2 id="staffHeading">Call a colleague</h2><div class="section-sub">Press Call beside a colleague marked Available</div></div><span class="total-chip" id="peopleCount">0 colleagues</span></div>
+      <label class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="searchStaff" type="search" placeholder="Search by name…" aria-label="Find a colleague" autocomplete="off" /></label>
       <div id="directory" aria-live="polite"></div>
     </section>
     <section class="panel intercom-panel" aria-labelledby="intercomHeading"><div class="call-top"><h2 id="intercomHeading">Staff intercom</h2><span class="live-tag">● READY</span></div>
@@ -125,7 +183,7 @@ body.live-session .footer{padding:10px 22px}
   </section>
   <div id="message" class="banner" role="status">Staff Connect uses your existing GitHub Pages and Google Apps Script connection.</div>
 </div>
-<footer class="footer"><span>GitHub Pages audio interface · Apps Script signalling · WebRTC</span><span>No audio recordings stored</span></footer>
+<footer class="footer"><span>Staff Connect · Secure staff audio</span><span>Conversations are not recorded</span></footer>
 </main>
 <div id="incoming" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="incomingName"><div class="dialog"><div class="dialog-icon" aria-hidden="true">♫</div><div class="calling">INCOMING STAFF INTERCOM REQUEST</div><h2 id="incomingName">Staff member</h2><p>A colleague would like to open a secure push-to-talk conversation.</p><div class="controlrow"><button id="accept" class="good">Accept</button><button id="decline" class="danger">Decline</button></div></div></div>
 <audio id="remoteAudio" autoplay playsinline></audio>
@@ -142,7 +200,7 @@ const CHANNEL='DT_STAFF_CONNECT_APPS_SCRIPT_V1';
 const ICE_SERVERS=[{urls:'stun:stun.l.google.com:19302'}];
 const state={me:null,members:[],presence:{},since:0,call:null,incoming:null,dnd:false,
  stream:null,audioCtx:null,source:null,analyser:null,remoteAnalyser:null,remoteSource:null,frame:0,ring:null,
- bridgeReady:false,requests:new Map(),polling:false,started:false,pollTimer:null,heartbeatTimer:null};
+ bridgeReady:false,requests:new Map(),polling:false,started:false,pollTimer:null,heartbeatTimer:null,collapsedGroups:{dt:false,slt:true,other:true},directorySignature:''};
 const newid=()=>crypto.randomUUID().replace(/-/g,'');
 function msg(s){$('message').textContent=s}
 function status(s){$('connection').textContent=s;$('connection').classList.toggle('online',s==='Online')}
@@ -200,7 +258,7 @@ function liveView(){
   $('remoteAvatar').textContent=initials(otherName(c.other));$('remoteName').textContent=otherName(c.other);
   resizePopup(760,610);
   requestAnimationFrame(()=>{drawIdle();if(state.analyser&&!state.frame)drawMic()});
- }else resizePopup(1000,790);
+ }else resizePopup(790,650);
 }
 function resizePopup(w,h){
  try{if(window.opener && !window.opener.closed){
@@ -249,45 +307,71 @@ function staffStatus(email){if(email===state.me?.email)return 'you';return state
 function renderDirectory(){
  const box=$('directory'),query=($('searchStaff')?.value||'').toLocaleLowerCase('en-GB').trim();
  const people=state.members.filter(m=>m.email!==state.me?.email);
- $('peopleCount').textContent=people.length+' '+(people.length===1?'colleague':'colleagues');
+ const signature=JSON.stringify([query,people.map(m=>[m.email,m.name,m.group,staffStatus(m.email)]),state.collapsedGroups,!!state.call,!!state.incoming]);
+ if(state.directorySignature===signature)return;
+ state.directorySignature=signature;
+ const previousFocus=document.activeElement?.getAttribute?.('aria-controls')||'';
+ const available=people.filter(m=>staffStatus(m.email)==='available').length;
+ $('peopleCount').textContent=available+' available';
  const previousScroll=box.scrollTop;box.replaceChildren();
  const normaliseGroup=g=>{const s=String(g||'dt').toLowerCase().replace(/\s/g,'');return ['slt','seniorleadership','leadership'].includes(s)?'slt':['dt','d&t','designandtechnology'].includes(s)?'dt':'other'};
  const groups=[
-  {id:'dt',title:'Design & Technology',sub:'Immediate D&T team',symbol:'<svg viewBox="0 0 24 24"><path d="m4 4 16 16M16 5l3 3-4 4M5 15l4 4M5 5l3 3M2 8l6-6"/></svg>'},
+  {id:'dt',title:'Design & Technology',sub:'Your D&T colleagues',symbol:'<svg viewBox="0 0 24 24"><path d="m4 4 16 16M16 5l3 3-4 4M5 15l4 4M5 5l3 3M2 8l6-6"/></svg>'},
   {id:'slt',title:'Senior Leadership Team',sub:'SLT colleagues',symbol:'<svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V9h14v11M8 9V5h8v4M9 13h2v3H9m4-3h2v3h-2"/></svg>'},
-  {id:'other',title:'Other colleagues',sub:'Additional authorised staff',symbol:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 6a3 3 0 0 1 0 6m1 3a5 5 0 0 1 4 5"/></svg>'}
+  {id:'other',title:'Other colleagues',sub:'Other staff',symbol:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 6a3 3 0 0 1 0 6m1 3a5 5 0 0 1 4 5"/></svg>'}
  ];
  for(const g of groups){
   const all=people.filter(m=>normaliseGroup(m.group)===g.id);
   if(g.id==='other'&&!all.length)continue;
-  const visible=all.filter(m=>(!query||(`${m.name} ${m.email}`).toLocaleLowerCase('en-GB').includes(query)));
+  const visible=all.filter(m=>!query||(`${m.name} ${m.email}`).toLocaleLowerCase('en-GB').includes(query));
+  // A search reveals matching members even when their team is normally folded away.
+  if(query&&!visible.length)continue;
+  const isOpen=Boolean(query)||!state.collapsedGroups[g.id];
   const section=document.createElement('section');section.className='team-section '+g.id;
-  const header=document.createElement('div');header.className='team-header';
-  const icon=document.createElement('span');icon.className='team-symbol';icon.innerHTML=g.symbol;
-  const heading=document.createElement('div');const name=document.createElement('div');name.className='team-name';name.textContent=g.title;
-  const hint=document.createElement('div');hint.className='team-hint';hint.textContent=g.sub;
-  heading.append(name,hint);const count=document.createElement('span');count.className='team-count';count.textContent=all.length+' '+(all.length===1?'member':'members');
-  header.append(icon,heading,count);section.append(header);
-  if(!visible.length){const empty=document.createElement('div');empty.className='empty-team';empty.textContent=query?'No matching colleagues in this team.':all.length?'No matching colleagues.':g.id==='dt'?'Set the Team column to D&T in StaffConnectMembers.':'Set the Team column to SLT in StaffConnectMembers.';section.append(empty)}
-  else{
+  const toggle=document.createElement('button');toggle.type='button';toggle.className='team-toggle';
+  toggle.setAttribute('aria-expanded',String(isOpen));toggle.setAttribute('aria-controls','sc-team-'+g.id);
+  toggle.setAttribute('aria-label',(isOpen?'Hide ':'Show ')+g.title+' colleagues');
+  const icon=document.createElement('span');icon.className='team-symbol';icon.innerHTML=g.symbol;icon.setAttribute('aria-hidden','true');
+  const heading=document.createElement('span');heading.className='team-heading';
+  const name=document.createElement('span');name.className='team-name';name.textContent=g.title;
+  const hint=document.createElement('span');hint.className='team-hint';hint.textContent=!isOpen?'Select to show colleagues':g.sub;
+  heading.append(name,hint);
+  const count=document.createElement('span');count.className='team-count';
+  count.textContent=all.filter(m=>staffStatus(m.email)==='available').length+' available / '+all.length;
+  const arrow=document.createElement('span');arrow.className='team-chevron';arrow.textContent='⌄';arrow.setAttribute('aria-hidden','true');
+  toggle.append(icon,heading,count,arrow);
+  toggle.addEventListener('click',()=>{state.collapsedGroups[g.id]=isOpen;renderDirectory();});
+  section.append(toggle);
+  const groupBody=document.createElement('div');groupBody.id='sc-team-'+g.id;groupBody.hidden=!isOpen;
+  if(!visible.length){
+   const empty=document.createElement('div');empty.className='empty-team';
+   empty.textContent=all.length?'No matching colleagues.':g.id==='dt'?'No D&T members configured.':'No SLT members configured.';
+   groupBody.append(empty);
+  }else{
    const cards=document.createElement('div');cards.className='team-cards';
    visible.sort((a,b)=>Number(staffStatus(b.email)==='available')-Number(staffStatus(a.email)==='available')||a.name.localeCompare(b.name,'en-GB'));
    visible.forEach(m=>{
     const st=staffStatus(m.email),card=document.createElement('article');card.className='person'+(st==='available'?' top-online':'');
+    card.title=m.name+' · '+m.email+' · '+(st==='available'?'Available':st==='dnd'?'Do not disturb':st==='busy'?'Busy':'Offline');
     const head=document.createElement('div');head.className='person-head';
-    const avatar=document.createElement('div');avatar.className='person-avatar';avatar.setAttribute('aria-hidden','true');avatar.textContent=(m.name||m.email).split(/\s+/).map(x=>x[0]||'').slice(0,2).join('').toUpperCase();
-    const text=document.createElement('div');text.className='person-copy';const name=document.createElement('div');name.className='person-name';name.textContent=m.name;
-    const email=document.createElement('div');email.className='person-email';email.textContent=m.email;text.append(name,email);head.append(avatar,text);
-    const footer=document.createElement('div');footer.className='person-footer';
-    const stateText=document.createElement('span');stateText.className='state';const dot=document.createElement('span');dot.className='dot '+(st==='available'?'online':st==='dnd'?'dnd':st==='busy'?'busy':'');
-    stateText.append(dot,document.createTextNode(st==='available'?'Available':st==='dnd'?'Do not disturb':st==='busy'?'Busy':'Offline'));
-    const button=document.createElement('button');button.className='small';button.textContent='Connect';button.disabled=st!=='available'||!!state.call||!!state.incoming;
-    button.setAttribute('aria-label','Connect to '+m.name);button.addEventListener('click',()=>invite(m.email).catch(report));
-    footer.append(stateText,button);card.append(head,footer);cards.append(card);
-   });section.append(cards);
-  }box.append(section);
+    const avatar=document.createElement('div');avatar.className='person-avatar';avatar.setAttribute('aria-hidden','true');avatar.textContent=initials(m.name||m.email);
+    const copy=document.createElement('div');copy.className='person-copy';const label=document.createElement('div');label.className='person-name';label.textContent=m.name;
+    const email=document.createElement('div');email.className='person-email';email.textContent=m.email;copy.append(label,email);head.append(avatar,copy);
+    const foot=document.createElement('div');foot.className='person-footer';
+    const status=document.createElement('span');status.className='state';
+    const dot=document.createElement('span');dot.className='dot '+(st==='available'?'online':st==='dnd'?'dnd':st==='busy'?'busy':'');
+    status.append(dot,document.createTextNode(st==='available'?'Available':st==='dnd'?'Do not disturb':st==='busy'?'Busy':'Offline'));
+    const call=document.createElement('button');call.type='button';call.className='small';call.textContent='Call';
+    call.disabled=st!=='available'||!!state.call||!!state.incoming;
+    call.setAttribute('aria-label','Call '+m.name);call.addEventListener('click',()=>invite(m.email).catch(report));
+    foot.append(status,call);card.append(head,foot);cards.append(card);
+   });groupBody.append(cards);
+  }
+  section.append(groupBody);box.append(section);
  }
+ if(!box.children.length){const empty=document.createElement('div');empty.className='empty-team';empty.textContent='No colleagues match your search.';box.append(empty)}
  box.scrollTop=previousScroll;
+ if(previousFocus){const next=Array.from(box.querySelectorAll('.team-toggle')).find(b=>b.getAttribute('aria-controls')===previousFocus);next?.focus({preventScroll:true})}
 }
 function pendingUI(){const p=state.incoming;$('incoming').hidden=!p;
  if(p){$('incomingName').textContent=otherName(p.from);startRing()}else stopRing();renderDirectory()}
@@ -296,8 +380,8 @@ async function start(){try{
   let d=await sendBridge('init');state.me=d.me;state.members=d.members||[];state.presence=d.presence||{};
   $('accountName').textContent=d.me.name;$('accountEmail').textContent=d.me.email;
   $('signin').hidden=true;$('chime').hidden=false;$('dnd').hidden=false;$('workspace').hidden=false;$('setupNotice').hidden=true;
-  status('Online');renderDirectory();await heartbeat();
-  msg('Intercom ready. The timetable can receive requests even when this window is closed.');
+  status('Online');renderDirectory();resizePopup(790,650);await heartbeat();
+  msg('Ready to call. Your timetable can also receive calls while this window is closed.');
   // A timetable user clicked Accept. Verify this exact outstanding invitation on the server,
   // then accept it here once (after requesting the microphone). No second click needed.
   if(incomingIntent){
