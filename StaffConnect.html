@@ -27,6 +27,55 @@ h1{font-size:25px;letter-spacing:-.045em;margin:2px 0;line-height:1.15}.kicker{f
 @media(max-width:680px){body{padding:8px;display:block}.head{padding:15px}.content{padding:13px}.grid{grid-template-columns:1fr}.team-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.intercom-panel{position:static}#directory{max-height:38vh}.footer{padding:12px 14px}}
 @media(max-width:440px){.team-cards{grid-template-columns:1fr}.head{gap:6px}.brand-mark{width:39px;height:39px}.head h1{font-size:21px}.account-tools button{flex:1 1 auto}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Staff Connect 2 — three explicit screens: directory, invitation, live call. */
+body{padding:9px;min-height:100dvh}
+.shell{width:min(1100px,100%);box-shadow:none;border-radius:14px}
+body.live-session{padding:0;background:#0c2132}
+body.live-session .shell{width:100%;max-width:none;min-height:100dvh;border:0;border-radius:0;box-shadow:none;background:#0c2132}
+body.live-session .head{padding:14px 24px}
+body.live-session .head .heading-sub{display:none}
+body.live-session .content>.bar,body.live-session #setupNotice,body.live-session #adminNotice{display:none!important}
+body.live-session .content{padding:18px 22px 16px}
+body.live-session #message{display:none!important}
+body.live-session .footer{padding:10px 22px}
+.live-card{border-radius:18px;border:1px solid #3f6680;background:linear-gradient(135deg,#112e43,#0b2034 65%,#102b3b);padding:16px;display:grid;gap:12px;min-height:0}
+.live-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.live-eyebrow{font-size:10px;font-weight:900;letter-spacing:.17em;color:#8ecddf;text-transform:uppercase}
+.live-connection{border:1px solid #64829c;border-radius:100px;padding:7px 13px;background:#172e44;font-size:11px;font-weight:800;color:#d5e8f3;display:inline-flex;gap:8px;align-items:center}
+.live-connection::before{content:'';width:8px;height:8px;border-radius:100%;background:#f1c27a;box-shadow:0 0 0 4px #f1c27a1c;animation:sc-status-pulse 1.3s infinite}
+.live-connection.connected::before{background:#65e1b4;box-shadow:0 0 0 4px #65e1b41b;animation:none}
+@keyframes sc-status-pulse{50%{opacity:.3}}
+.live-visual{display:grid;grid-template-columns:minmax(125px,1fr) minmax(150px,1.6fr) minmax(125px,1fr);gap:12px;align-items:center;justify-items:stretch}
+.live-person{text-align:center;min-width:0;display:grid;justify-items:center;gap:6px}
+.live-person .live-avatar{display:grid;place-items:center;width:76px;height:76px;border-radius:24px;background:linear-gradient(145deg,#235c78,#173e5b);border:2px solid #5889aa;box-shadow:0 11px 22px #0005,inset 0 1px 0 #ffffff24;font-size:21px;font-weight:900;color:#e5f8ff;transition:all .2s}
+.live-person.remote .live-avatar{background:linear-gradient(145deg,#34536c,#293f67)}
+.live-person.talking .live-avatar{border-color:#62ecc3;box-shadow:0 0 0 6px #46cda71b,0 0 28px #34d39946;transform:scale(1.04)}
+.live-person strong{font-size:13px;line-height:1.25;overflow-wrap:anywhere;max-width:180px}
+.live-person small{font-size:10px;color:#aac6d9;font-weight:700}
+.live-link{position:relative;min-width:0}
+.live-link::before,.live-link::after{content:'';position:absolute;width:10px;height:10px;top:calc(50% - 5px);border-radius:50%;background:#72c8db;box-shadow:0 0 15px #72c8db88;z-index:3}
+.live-link::before{left:-4px}.live-link::after{right:-4px}
+.live-link .scope{height:105px;margin:0;border-radius:13px;border:1px solid #48748d}
+.live-link .scope-label{font-size:9px}
+.live-instruction{text-align:center;font-size:12px;color:#b6d5e6;min-height:19px;font-weight:650;line-height:1.4}
+.live-controls{display:grid;gap:12px;grid-template-columns:minmax(160px,1.45fr) minmax(150px,1fr)}
+.ptt-switch{height:102px;min-height:102px;border-radius:20px;border:2px solid #7099b1!important;background:linear-gradient(155deg,#284e68,#0f3048)!important;box-shadow:inset 0 3px 8px #001a30b7,0 8px 18px #0006;display:grid;place-items:center;gap:3px;color:#eefaff;position:relative;overflow:hidden;touch-action:none;user-select:none;cursor:pointer;transition:transform .09s,filter .12s,border-color .12s,box-shadow .12s}
+.ptt-switch .switch-knob{width:41px;height:41px;display:grid;place-items:center;border-radius:50%;border:1px solid #7bc4e5;background:radial-gradient(circle at 35% 25%,#67b9df,#24567d 65%,#193750);box-shadow:0 4px 9px #07101ea9,inset 0 1px 1px #fff9;transition:transform .13s,box-shadow .13s;font-size:22px;line-height:1}
+.ptt-switch .switch-label{font-size:12px;font-weight:900;letter-spacing:.075em;text-transform:uppercase}
+.ptt-switch .switch-sub{font-size:10px;color:#b1d9ed;font-weight:650}
+.ptt-switch.is-pressed{border-color:#72edc1!important;transform:translateY(2px);background:linear-gradient(155deg,#126750,#10483e)!important;box-shadow:inset 0 4px 10px #001b15,0 0 0 5px #34d39918!important}
+.ptt-switch.is-pressed .switch-knob{transform:translateY(3px) scale(.96);box-shadow:0 1px 2px #0007,0 0 18px #72ffd855;animation:sc-switch-glow .65s infinite alternate}
+@keyframes sc-switch-glow{to{filter:brightness(1.35)}}
+.ptt-switch:disabled{opacity:.52;filter:grayscale(.5);transform:none;cursor:not-allowed}
+.live-secondary{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start}
+.live-secondary button{min-height:41px;font-size:12px}
+.live-secondary .volume-control{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;color:#c9dbe8;background:#0c2538;border:1px solid #355d78;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:750}
+.volume-control input{width:100%;cursor:pointer;accent-color:#6dddb8}
+.live-secondary #hangupBtn{grid-column:1/-1}
+.live-note{font-size:10px;color:#91adbf;text-align:center;line-height:1.4}
+@media(max-width:640px){.live-card{padding:13px;gap:10px;min-height:0}.live-visual{grid-template-columns:1fr 1.15fr 1fr;gap:5px}.live-person .live-avatar{width:52px;height:52px;border-radius:15px;font-size:14px}.live-person strong{font-size:11px}.live-link .scope{height:75px}.live-controls{grid-template-columns:1fr}.ptt-switch{height:82px;min-height:82px;grid-template-columns:auto 1fr;gap:8px;padding:9px 13px}.ptt-switch .switch-knob{grid-row:span 2}.live-connection{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.ptt-switch,.ptt-switch .switch-knob,.live-person .live-avatar,.live-connection::before{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -47,18 +96,38 @@ h1{font-size:25px;letter-spacing:-.045em;margin:2px 0;line-height:1.15}.kicker{f
       <label class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="searchStaff" type="search" placeholder="Find a colleague…" aria-label="Find a colleague" autocomplete="off" /></label>
       <div id="directory" aria-live="polite"></div>
     </section>
-    <section class="panel intercom-panel" aria-labelledby="intercomHeading"><div class="call-top"><h2 id="intercomHeading">Intercom</h2><span class="live-tag">● LIVE AUDIO</span></div>
-      <div class="call-intro"><div class="call-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="15" rx="5"/><path d="M4 11a8 8 0 0 0 16 0M12 19v3m-4 0h8"/></svg></div><div><div id="callTitle" class="call-title">Ready to connect</div><div id="callState" class="status">Select an available colleague to begin.</div></div></div>
-      <div class="scope"><span class="scope-label">MICROPHONE · LIVE SIGNAL</span><canvas id="waveform" aria-label="Live microphone signal visualisation"></canvas></div>
-      <div class="call-controls"><button id="modeBtn" disabled>Mode: Open microphone</button><button id="muteBtn" disabled>Mute</button><button id="pttBtn" disabled hidden>Hold to talk</button><button id="speakerBtn" disabled>Enable speaker</button><button id="hangupBtn" class="danger" disabled>End conversation</button></div>
-      <div class="privacy"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Encrypted live audio. No recording, transcription or audio uploads. Incoming requests also appear automatically in the timetable while it remains open.</span></div>
+    <section class="panel intercom-panel" aria-labelledby="intercomHeading"><div class="call-top"><h2 id="intercomHeading">Staff intercom</h2><span class="live-tag">● READY</span></div>
+      <div class="call-intro"><div class="call-avatar" aria-hidden="true">◉</div><div><div id="callTitle" class="call-title">Ready to connect</div><div id="callState" class="status">Select an available colleague to begin.</div></div></div>
+      <p class="note muted">Calls now use an individual live-call screen. The microphone stays silent unless you hold the push-to-talk switch.</p>
+      <div class="privacy"><span>Encrypted audio only · No recording · No transcripts</span></div>
     </section>
   </div>
+  <section id="liveCall" hidden aria-label="Live staff intercom call">
+    <div class="live-card">
+      <div class="live-top"><span class="live-eyebrow">D&amp;T · Secure voice channel</span><span id="liveConnection" class="live-connection" role="status" aria-live="polite">Connecting…</span></div>
+      <div class="live-visual">
+        <div class="live-person self" id="selfPerson"><div class="live-avatar" id="selfAvatar">ME</div><strong id="selfName">You</strong><small id="selfSpeaking">Microphone standby</small></div>
+        <div class="live-link"><div class="scope"><span class="scope-label">VOICE · LIVE WAVEFORM</span><canvas id="waveform" aria-label="Live microphone and incoming audio waveform"></canvas></div></div>
+        <div class="live-person remote" id="remotePerson"><div class="live-avatar" id="remoteAvatar">••</div><strong id="remoteName">Colleague</strong><small id="remoteSpeaking">Connecting…</small></div>
+      </div>
+      <div class="live-instruction" id="liveInstruction" aria-live="polite">Establishing a secure audio connection…</div>
+      <div class="live-controls">
+        <button id="pttBtn" class="ptt-switch" disabled aria-label="Hold to talk" aria-pressed="false"><span class="switch-knob" aria-hidden="true">🎙</span><span class="switch-label">HOLD TO TALK</span><span class="switch-sub">Release to listen</span></button>
+        <div class="live-secondary">
+          <button id="muteBtn" disabled>Mute mic</button><button id="toneBtn" disabled>♪ Send tone</button>
+          <label class="volume-control" for="volumeSlider"><span>🔊 Volume</span><input id="volumeSlider" type="range" min="0" max="100" value="75" step="1"/><output id="volumeValue">75%</output></label>
+          <button id="speakerBtn" disabled>Enable speaker</button><button id="hangupBtn" class="danger" disabled>End call</button>
+        </div>
+      </div>
+      <button id="modeBtn" hidden disabled>Push-to-talk only</button>
+      <div class="live-note">Half-duplex audio · PTT required to transmit · Conversations are not recorded</div>
+    </div>
+  </section>
   <div id="message" class="banner" role="status">Staff Connect uses your existing GitHub Pages and Google Apps Script connection.</div>
 </div>
 <footer class="footer"><span>GitHub Pages audio interface · Apps Script signalling · WebRTC</span><span>No audio recordings stored</span></footer>
 </main>
-<div id="incoming" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="incomingName"><div class="dialog"><div class="dialog-icon" aria-hidden="true">♫</div><div class="calling">INCOMING STAFF INTERCOM REQUEST</div><h2 id="incomingName">Staff member</h2><p>A colleague would like to start a live, two-way audio conversation.</p><div class="controlrow"><button id="accept" class="good">Accept</button><button id="decline" class="danger">Decline</button></div></div></div>
+<div id="incoming" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="incomingName"><div class="dialog"><div class="dialog-icon" aria-hidden="true">♫</div><div class="calling">INCOMING STAFF INTERCOM REQUEST</div><h2 id="incomingName">Staff member</h2><p>A colleague would like to open a secure push-to-talk conversation.</p><div class="controlrow"><button id="accept" class="good">Accept</button><button id="decline" class="danger">Decline</button></div></div></div>
 <audio id="remoteAudio" autoplay playsinline></audio>
 <script>
 /* STAFF CONNECT — GitHub Pages WebRTC client using the EXISTING Apps Script timetable as a signalling bridge.
@@ -72,7 +141,7 @@ const incomingIntent=/^[a-f0-9]{32}$/.test(params.get('incoming')||'') ? params.
 const CHANNEL='DT_STAFF_CONNECT_APPS_SCRIPT_V1';
 const ICE_SERVERS=[{urls:'stun:stun.l.google.com:19302'}];
 const state={me:null,members:[],presence:{},since:0,call:null,incoming:null,dnd:false,
- stream:null,audioCtx:null,source:null,analyser:null,frame:0,ring:null,
+ stream:null,audioCtx:null,source:null,analyser:null,remoteAnalyser:null,remoteSource:null,frame:0,ring:null,
  bridgeReady:false,requests:new Map(),polling:false,started:false,pollTimer:null,heartbeatTimer:null};
 const newid=()=>crypto.randomUUID().replace(/-/g,'');
 function msg(s){$('message').textContent=s}
@@ -103,15 +172,15 @@ function requestHello(){if(!session||!/^https:\/\/[^/]+$/.test(hostOrigin)||!win
 }
 function tone(){try{const A=window.AudioContext||window.webkitAudioContext;if(!A)return;
  if(!state.audioCtx)state.audioCtx=new A();state.audioCtx.resume().catch(()=>{});
- const c=state.audioCtx,t=c.currentTime;[0,.24,.48].forEach((delay,i)=>{let o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=i===1?825:610;g.gain.setValueAtTime(.0001,t+delay);g.gain.linearRampToValueAtTime(.045,t+delay+.025);g.gain.exponentialRampToValueAtTime(.0001,t+delay+.17);o.connect(g);g.connect(c.destination);o.start(t+delay);o.stop(t+delay+.19)})
+ const c=state.audioCtx,t=c.currentTime;[0,.24,.48].forEach((delay,i)=>{let o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=i===1?825:610;g.gain.setValueAtTime(.0001,t+delay);g.gain.linearRampToValueAtTime(.135,t+delay+.025);g.gain.exponentialRampToValueAtTime(.0001,t+delay+.17);o.connect(g);g.connect(c.destination);o.start(t+delay);o.stop(t+delay+.19)})
  }catch(e){console.warn(e)}}
 function startRing(){if(state.ring)return;tone();state.ring=setInterval(tone,2300)}
 function stopRing(){if(state.ring)clearInterval(state.ring);state.ring=null}
 function drawIdle(){const cv=$('waveform');let c=cv.getContext('2d'),r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);
- cv.width=Math.max(1,Math.floor(r.width*d));cv.height=Math.max(1,Math.floor(r.height*d));c.setTransform(d,0,0,d,0,0);
+ const width=Math.max(1,Math.floor(r.width*d)),height=Math.max(1,Math.floor(r.height*d));if(cv.width!==width)cv.width=width;if(cv.height!==height)cv.height=height;c.setTransform(d,0,0,d,0,0);
  c.fillStyle='#091725';c.fillRect(0,0,r.width,r.height);c.strokeStyle='#254459';c.beginPath();for(let x=0;x<r.width;x+=30){c.moveTo(x,0);c.lineTo(x,r.height)}for(let y=0;y<r.height;y+=22){c.moveTo(0,y);c.lineTo(r.width,y)}c.stroke();c.strokeStyle='#77a1b5';c.beginPath();c.moveTo(0,r.height/2);c.lineTo(r.width,r.height/2);c.stroke()}
 function drawMic(){if(!state.analyser)return;const cv=$('waveform'),c=cv.getContext('2d'),values=new Uint8Array(state.analyser.fftSize);
- const paint=()=>{if(!state.analyser)return;drawIdle();let r=cv.getBoundingClientRect();state.analyser.getByteTimeDomainData(values);c.beginPath();for(let i=0;i<values.length;i++){let x=i/(values.length-1)*r.width,y=r.height/2+(values[i]-128)/128*r.height*.44;if(i)c.lineTo(x,y);else c.moveTo(x,y)}c.lineWidth=2;c.strokeStyle='#79d8cc';c.stroke();state.frame=requestAnimationFrame(paint)};paint()}
+ let last=0;const paint=(time)=>{if(!state.analyser)return;state.frame=requestAnimationFrame(paint);if(time-last<36)return;last=time;drawIdle();let r=cv.getBoundingClientRect();(state.call?.talking ? state.analyser : (state.call?.peerSpeaking && state.remoteAnalyser ? state.remoteAnalyser : state.analyser)).getByteTimeDomainData(values);c.beginPath();for(let i=0;i<values.length;i++){let x=i/(values.length-1)*r.width,y=r.height/2+(values[i]-128)/128*r.height*.44;if(i)c.lineTo(x,y);else c.moveTo(x,y)}c.lineWidth=2;c.strokeStyle='#79d8cc';c.stroke()};state.frame=requestAnimationFrame(paint)}
 async function microphone(){if(state.stream)return;
  if(!navigator.mediaDevices?.getUserMedia)throw Error('This browser cannot access the microphone. Use the HTTPS GitHub Pages window.');
  state.stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false});
@@ -119,15 +188,63 @@ async function microphone(){if(state.stream)return;
  state.source=state.audioCtx.createMediaStreamSource(state.stream);state.analyser=state.audioCtx.createAnalyser();state.analyser.fftSize=2048;state.source.connect(state.analyser);drawMic()}catch(e){console.warn('Waveform unavailable',e)}
  transmit();
 }
-function stopMic(){cancelAnimationFrame(state.frame);state.frame=0;try{state.source?.disconnect()}catch(_){};
+function stopMic(){cancelAnimationFrame(state.frame);state.frame=0;try{state.source?.disconnect()}catch(_){};try{state.remoteSource?.disconnect()}catch(_){};state.remoteSource=null;state.remoteAnalyser=null;
  state.source=null;state.analyser=null;state.stream?.getTracks().forEach(t=>t.stop());state.stream=null;drawIdle()}
-function transmit(){const c=state.call;let enabled=!!c&&!c.muted&&(c.mode==='open'||c.talking);
- state.stream?.getAudioTracks().forEach(t=>t.enabled=enabled);
- $('muteBtn').textContent=c?.muted?'Unmute':'Mute';$('modeBtn').textContent='Mode: '+(c?.mode==='ptt'?'Push to talk':'Open microphone');
- $('pttBtn').hidden=c?.mode!=='ptt';$('pttBtn').classList.toggle('active',!!c?.talking)}
-function controls(){let c=state.call;['modeBtn','muteBtn','speakerBtn','hangupBtn','pttBtn'].forEach(id=>$(id).disabled=!c);
- $('callTitle').textContent=c?otherName(c.other):'Ready to connect';$('callState').textContent=c?c.label:'Select an available colleague to begin.';
- transmit()}
+function initials(name){return String(name||'').split(/\s+/).filter(Boolean).slice(0,2).map(v=>v[0]).join('').toUpperCase()||'??'}
+function liveView(){
+ const c=state.call,on=!!c;
+ $('workspace').hidden=on;$('liveCall').hidden=!on;
+ document.body.classList.toggle('live-session',on);
+ if(on){
+  $('selfAvatar').textContent=initials(state.me?.name);$('selfName').textContent=state.me?.name||'You';
+  $('remoteAvatar').textContent=initials(otherName(c.other));$('remoteName').textContent=otherName(c.other);
+  resizePopup(760,610);
+  requestAnimationFrame(()=>{drawIdle();if(state.analyser&&!state.frame)drawMic()});
+ }else resizePopup(1000,790);
+}
+function resizePopup(w,h){
+ try{if(window.opener && !window.opener.closed){
+   const W=Math.min(w,screen.availWidth-30),H=Math.min(h,screen.availHeight-45);
+   window.resizeTo(W,H);window.moveTo(Math.round(screen.availLeft+(screen.availWidth-W)/2),Math.round(screen.availTop+(screen.availHeight-H)/2));
+ }}catch(_){} // Browsers can decline resize or reposition requests.
+}
+function controlSend(c,payload){
+ if(c?.dc?.readyState!=='open')return false;
+ try{c.dc.send(JSON.stringify(payload));return true}catch(e){report(e);return false}
+}
+function syncLiveStatus(){
+ const c=state.call; if(!c)return;
+ const connected=c.pc?.connectionState==='connected',ready=connected&&c.dc?.readyState==='open';
+ const b=$('liveConnection');b.classList.toggle('connected',ready);
+ b.textContent=ready?'● Connected · PTT ready':connected?'● Audio linked · Controls starting':'● '+(c.label||'Connecting…');
+ $('liveInstruction').textContent=!ready?'Connecting to '+otherName(c.other)+' — microphone off until ready':
+   c.talking?'Transmitting · release the switch to listen':c.peerSpeaking?otherName(c.other)+' is speaking':c.requesting?'Requesting the channel…':'Hold the switch to speak · release to hear your colleague';
+ $('selfSpeaking').textContent=c.talking?'TRANSMITTING':c.muted?'Microphone muted':'Microphone standby';
+ $('remoteSpeaking').textContent=c.peerSpeaking?'SPEAKING':ready?'Listening':'Connecting…';
+ $('selfPerson').classList.toggle('talking',!!c.talking);
+ $('remotePerson').classList.toggle('talking',!!c.peerSpeaking);
+ const p=$('pttBtn');p.disabled=!ready||c.muted||c.peerSpeaking;
+ p.classList.toggle('is-pressed',!!c.talking);p.setAttribute('aria-pressed',String(!!c.talking));
+ p.querySelector('.switch-label').textContent=c.talking?'TRANSMITTING':c.requesting?'CHANNEL REQUESTED':c.peerSpeaking?'CHANNEL BUSY':'HOLD TO TALK';
+ p.querySelector('.switch-sub').textContent=c.talking?'Release to listen':c.peerSpeaking?'Colleague is speaking':'Hold or press space';
+ $('toneBtn').disabled=!ready;
+ $('speakerBtn').disabled=!connected;
+ $('hangupBtn').disabled=false;
+ $('muteBtn').disabled=false;
+ $('muteBtn').textContent=c.muted?'Unmute mic':'Mute mic';
+}
+function transmit(){
+ const c=state.call;const enabled=!!c&&!c.muted&&!!c.talking&&c.pc?.connectionState==='connected';
+ state.stream?.getAudioTracks().forEach(track=>{track.enabled=enabled});
+ syncLiveStatus();
+}
+function controls(){
+ const c=state.call;
+ $('callTitle').textContent=c?otherName(c.other):'Ready to connect';
+ $('callState').textContent=c?c.label:'Select an available colleague to begin.';
+ if(c){if($('liveCall').hidden)liveView();syncLiveStatus()}else liveView();
+ transmit();
+}
 function staffStatus(email){if(email===state.me?.email)return 'you';return state.presence[email]||'offline'}
 function renderDirectory(){
  const box=$('directory'),query=($('searchStaff')?.value||'').toLocaleLowerCase('en-GB').trim();
@@ -198,7 +315,7 @@ async function poll(){if(state.polling||!state.me)return;state.polling=true;
   for(const item of data.messages||[]){state.since=Math.max(state.since,item.seq);await onSignal(item)}renderDirectory();
  }catch(e){report(e)}finally{state.polling=false;clearTimeout(state.pollTimer);state.pollTimer=setTimeout(()=>poll().catch(report),document.hidden?6000:2500)}
 }
-async function invite(email){if(state.call||state.incoming)return;const id=newid(),c={id,other:email,role:'caller',mode:'open',muted:false,talking:false,label:'Preparing microphone…',pc:null,candidates:[],iceBuffer:[],iceTimer:null};
+async function invite(email){if(state.call||state.incoming)return;const id=newid(),c={id,other:email,role:'caller',mode:'ptt',muted:false,talking:false,peerSpeaking:false,requesting:false,held:false,requestId:null,dc:null,label:'Preparing microphone…',pc:null,candidates:[],iceBuffer:[],iceTimer:null};
  state.call=c;controls();renderDirectory();
  try{await microphone();c.label='Calling '+otherName(email)+'…';controls();await sendBridge('invite',{id,to:email});await heartbeat();
   c.ringTimeout=setTimeout(()=>{if(state.call===c)finish('No answer').catch(report)},65000);
@@ -227,7 +344,7 @@ async function onSignal(s){const c=state.call;
  }
 }
 async function accept(){const p=state.incoming;if(!p)return;state.incoming=null;pendingUI();
- const c={id:p.id,other:p.from,role:'callee',mode:'open',muted:false,talking:false,label:'Connecting…',pc:null,candidates:[],iceBuffer:[],iceTimer:null};state.call=c;controls();
+ const c={id:p.id,other:p.from,role:'callee',mode:'ptt',muted:false,talking:false,peerSpeaking:false,requesting:false,held:false,requestId:null,dc:null,label:'Connecting…',pc:null,candidates:[],iceBuffer:[],iceTimer:null};state.call=c;controls();
  try{await microphone();await sendBridge('accept',{id:c.id});await heartbeat();await connectRTC(c)}
  catch(e){report(e);await finish('Unable to accept request')}
 }
@@ -238,14 +355,75 @@ async function flushIce(c){if(!c.pc?.remoteDescription)return;while(c.candidates
 function queueIce(c,item){c.iceBuffer.push(item);if(c.iceTimer)return;
  c.iceTimer=setTimeout(()=>{const items=c.iceBuffer.splice(0);c.iceTimer=null;if(items.length&&state.call===c)
    sendBridge('signal',{id:c.id,kind:'ice',data:{items}}).catch(report)},400)}
+function bindControlChannel(c,dc){
+ c.dc=dc;
+ dc.onopen=()=>{if(state.call===c)syncLiveStatus()};
+ dc.onclose=()=>{if(state.call===c){c.peerSpeaking=false;releaseTalk();syncLiveStatus()}};
+ dc.onerror=e=>console.warn('Control channel error',e);
+ dc.onmessage=e=>{
+  if(state.call!==c)return;
+  let m;try{m=JSON.parse(e.data)}catch(_){return}
+  if(m.type==='request' && typeof m.id==='string'){
+   const myPriority=String(state.me?.email||'').localeCompare(String(c.other||''))<0;
+   const busy=c.talking || (c.requesting && myPriority) || c.peerSpeaking;
+   if(!busy){c.peerSpeaking=true;if(c.requesting){c.requesting=false;c.requestId=null}}
+   controlSend(c,{type:'grant',id:m.id,ok:!busy});syncLiveStatus();return;
+  }
+  if(m.type==='grant' && c.requesting && m.id===c.requestId){
+   c.requesting=false;c.requestId=null;
+   if(m.ok && c.held && !c.peerSpeaking){c.talking=true}else c.talking=false;
+   if(!c.talking && m.ok)controlSend(c,{type:'release'});
+   transmit();return;
+  }
+  if(m.type==='release'){c.peerSpeaking=false;syncLiveStatus();return}
+  if(m.type==='tone'){incomingTone();msg('Tone from '+otherName(c.other));return}
+ };
+}
+function pressTalk(){
+ const c=state.call;
+ if(!c||c.muted||c.peerSpeaking||c.pc?.connectionState!=='connected'||c.dc?.readyState!=='open')return;
+ if(c.held)return;
+ c.held=true;c.requesting=true;c.requestId=newid();
+ if(!controlSend(c,{type:'request',id:c.requestId})){c.requesting=false;c.held=false}
+ syncLiveStatus();
+}
+function releaseTalk(){
+ const c=state.call;if(!c)return;
+ const was=c.talking||c.requesting||c.held;
+ c.held=false;c.talking=false;c.requesting=false;c.requestId=null;
+ if(was)controlSend(c,{type:'release'});
+ transmit();
+}
+function incomingTone(){
+ // Plays a short, locally generated signalling tone at the recipient. Never recorded.
+ try{
+ const A=window.AudioContext||window.webkitAudioContext;
+ if(!state.audioCtx)state.audioCtx=new A();
+ state.audioCtx.resume().catch(()=>{});const a=state.audioCtx,t=a.currentTime;
+ [0,.18].forEach((d,i)=>{const osc=a.createOscillator(),gain=a.createGain();
+ osc.type='sine';osc.frequency.value=i?960:740;
+ gain.gain.setValueAtTime(.0001,t+d);gain.gain.linearRampToValueAtTime(.075,t+d+.018);
+ gain.gain.exponentialRampToValueAtTime(.0001,t+d+.145);
+ osc.connect(gain);gain.connect(a.destination);osc.start(t+d);osc.stop(t+d+.16)});
+ }catch(e){console.warn('Tone playback unavailable',e)}
+}
 async function connectRTC(c){if(c.pc)return;let pc=new RTCPeerConnection({iceServers:ICE_SERVERS});c.pc=pc;
+ // The control channel arbitrates who may transmit. This is true half-duplex, not just local mute.
+ pc.ondatachannel=e=>bindControlChannel(c,e.channel);
+ if(c.role==='caller')bindControlChannel(c,pc.createDataChannel('staffconnect-ptt',{ordered:true}));
  state.stream.getTracks().forEach(track=>pc.addTrack(track,state.stream));
- pc.ontrack=e=>{const a=$('remoteAudio');a.srcObject=e.streams[0]||new MediaStream([e.track]);a.play().catch(()=>msg('Audio connected: press Enable speaker to play incoming sound.'))};
+ pc.ontrack=e=>{const a=$('remoteAudio'),remote=e.streams[0]||new MediaStream([e.track]);
+   a.srcObject=remote;a.volume=Number($('volumeSlider').value)/100;
+   try{state.remoteSource?.disconnect();state.remoteSource=state.audioCtx.createMediaStreamSource(remote);
+     state.remoteAnalyser=state.audioCtx.createAnalyser();state.remoteAnalyser.fftSize=2048;
+     state.remoteSource.connect(state.remoteAnalyser)}catch(err){console.warn('Remote scope unavailable:',err)}
+   a.play().catch(()=>{msg('Incoming audio is ready. Select Enable speaker if your browser requires it.')});
+ };
  pc.onicecandidate=e=>{if(e.candidate)queueIce(c,e.candidate.toJSON())};
  pc.onconnectionstatechange=()=>{if(state.call!==c)return;
-  if(pc.connectionState==='connected'){clearTimeout(c.connectTimeout);c.label='Connected · live audio';controls();msg('Live two-way encrypted audio. No audio is recorded or uploaded.');}
+  if(pc.connectionState==='connected'){clearTimeout(c.connectTimeout);c.label='Connected · waiting for PTT channel';controls();transmit();msg('Encrypted audio linked. Hold to talk once the PTT channel is ready.');}
   if(pc.connectionState==='failed')finish('Could not establish audio (a TURN relay may be required)').catch(report);
-  if(pc.connectionState==='disconnected'){c.label='Connection interrupted…';controls();clearTimeout(c.lostTimer);
+  if(pc.connectionState==='disconnected'){releaseTalk();c.label='Connection interrupted…';controls();clearTimeout(c.lostTimer);
     c.lostTimer=setTimeout(()=>{if(pc.connectionState==='disconnected')finish('Connection lost').catch(report)},11000)}
  };
  if(c.role==='caller'){
@@ -254,9 +432,9 @@ async function connectRTC(c){if(c.pc)return;let pc=new RTCPeerConnection({iceSer
  }
  c.label='Establishing audio…';controls();c.connectTimeout=setTimeout(()=>{if(state.call===c&&pc.connectionState!=='connected')finish('Audio connection timed out').catch(report)},45000);
 }
-async function finish(reason='Call ended',notify=true){let c=state.call;if(!c){msg(reason);return}state.call=null;
+async function finish(reason='Call ended',notify=true){let c=state.call;if(!c){msg(reason);return}releaseTalk();state.call=null;
  clearTimeout(c.ringTimeout);clearTimeout(c.connectTimeout);clearTimeout(c.lostTimer);clearTimeout(c.iceTimer);
- try{c.pc?.close()}catch(_){};$('remoteAudio').pause();$('remoteAudio').srcObject=null;stopMic();controls();renderDirectory();
+ try{c.pc?.close()}catch(_){};try{c.dc?.close()}catch(_){};$('remoteAudio').pause();$('remoteAudio').srcObject=null;stopMic();controls();renderDirectory();
  msg(reason);if(notify)sendBridge('end',{id:c.id}).catch(()=>{});heartbeat().catch(()=>{});
 }
 $('signin').hidden=true;
@@ -265,15 +443,21 @@ $('chime').addEventListener('click',()=>{tone();$('chime').textContent='Ringtone
 $('dnd').addEventListener('click',()=>{state.dnd=!state.dnd;$('dnd').textContent='Do Not Disturb: '+(state.dnd?'on':'off');$('dnd').classList.toggle('active',state.dnd);heartbeat().catch(report)});
 $('accept').addEventListener('click',()=>accept().catch(report));$('decline').addEventListener('click',()=>decline().catch(report));
 $('hangupBtn').addEventListener('click',()=>finish('Call ended').catch(report));
-$('muteBtn').addEventListener('click',()=>{if(state.call){state.call.muted=!state.call.muted;transmit()}});
-$('modeBtn').addEventListener('click',()=>{const c=state.call;if(!c)return;c.mode=c.mode==='ptt'?'open':'ptt';c.talking=false;transmit()});
-$('speakerBtn').addEventListener('click',()=>$('remoteAudio').play().catch(report));
-let ptt=$('pttBtn');function talk(flag){if(state.call){state.call.talking=flag;transmit()}}
-ptt.addEventListener('pointerdown',e=>{e.preventDefault();try{ptt.setPointerCapture(e.pointerId)}catch(_){}talk(true)});
-['pointerup','pointercancel','lostpointercapture'].forEach(k=>ptt.addEventListener(k,()=>talk(false)));
-ptt.addEventListener('keydown',e=>{if((e.code==='Space'||e.code==='Enter')&&!e.repeat){e.preventDefault();talk(true)}});
-ptt.addEventListener('keyup',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();talk(false)}});
-window.addEventListener('blur',()=>talk(false));window.addEventListener('resize',()=>{if(!state.analyser)drawIdle()});
+$('muteBtn').addEventListener('click',()=>{const c=state.call;if(!c)return;c.muted=!c.muted;if(c.muted)releaseTalk();transmit()});
+$('speakerBtn').addEventListener('click',async()=>{try{await $('remoteAudio').play();$('speakerBtn').textContent='Speaker enabled'}catch(e){report(e)}});
+$('toneBtn').addEventListener('click',()=>{const c=state.call;if(!c)return;
+ if(controlSend(c,{type:'tone'})){incomingTone();msg('Short signal tone sent to '+otherName(c.other))}else msg('The audio control channel is not ready')});
+const volume=$('volumeSlider');
+try{const saved=Number(localStorage.getItem('sc-playback-volume'));if(Number.isFinite(saved)&&saved>=0&&saved<=100){volume.value=saved}}catch(_){}
+function applyVolume(){const val=Number(volume.value);$('remoteAudio').volume=val/100;$('volumeValue').textContent=val+'%';try{localStorage.setItem('sc-playback-volume',String(val))}catch(_){}}
+volume.addEventListener('input',applyVolume);applyVolume();
+let ptt=$('pttBtn');
+ptt.addEventListener('pointerdown',e=>{if(ptt.disabled)return;e.preventDefault();try{ptt.setPointerCapture(e.pointerId)}catch(_){}pressTalk()});
+['pointerup','pointercancel','lostpointercapture','pointerleave'].forEach(k=>ptt.addEventListener(k,()=>releaseTalk()));
+ptt.addEventListener('keydown',e=>{if((e.code==='Space'||e.code==='Enter')&&!e.repeat){e.preventDefault();pressTalk()}});
+ptt.addEventListener('keyup',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();releaseTalk()}});
+window.addEventListener('blur',releaseTalk);
+window.addEventListener('resize',()=>{if(!state.analyser)drawIdle()});
 window.addEventListener('pagehide',()=>{stopRing();state.stream?.getTracks().forEach(t=>t.stop());if(state.call)sendBridge('end',{id:state.call.id}).catch(()=>{})});
 drawIdle();requestHello();
 
